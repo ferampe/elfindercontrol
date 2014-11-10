@@ -1,7 +1,7 @@
 {
     "name": "ferampe/elfindercontrol",
     "keywords": ["laravel", "input-text", "elfinder", "filebrowser"],
-    "description": "Basic text input integrated ElFinder 2 and Ckeditor 4 ",
+    "description": "Basic text input integrated ElFinder 2",
     "authors": [
         {
             "name": "Ferampe",
