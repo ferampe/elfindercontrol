@@ -1,0 +1,28 @@
+{
+    "name": "ferampe/elfindercontrol",
+    "keywords": ["laravel", "input-text", "elfinder", "filebrowser"],
+    "description": "Basic text input integrated ElFinder 2 and Ckeditor 4 ",
+    "authors": [
+        {
+            "name": "Ferampe",
+            "email": "fernandoramoscarrasco@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/controllers",
+            "src/config",
+            "src/views",
+            "src/elFinder"
+
+        ],
+        "psr-0": {
+            "Ferampe\\Elfindercontrol\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
