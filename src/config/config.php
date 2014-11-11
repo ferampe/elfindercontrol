@@ -12,7 +12,7 @@ return array(
     'lang' => 'es',
 
     /*
-    Especific more root to elfinder
+    Especific more Opts to elfinder
      */
-    'roots' => null
+    'roots' => ''
 );

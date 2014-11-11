@@ -21,6 +21,7 @@ class ElfindercontrolController extends \BaseController {
 					:  null;                                    // else elFinder decide it itself
 			};
 
+
         $opts = array(			
 			'roots' => array(
 				array(
@@ -31,6 +32,8 @@ class ElfindercontrolController extends \BaseController {
 				)
 			)
 		);
+
+		//$opts = Config::get($this->package.'::opts');
 
         $connector = new \elFinderConnector(new \elFinder($opts));
         $connector->run();
