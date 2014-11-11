@@ -30,6 +30,16 @@ Now We need publish asset
 php artisan asset:publish ferampe/elfindercontrol
 ```
 
+##Configuration
+
+We have to set the folder where the images will be stored, create a folder with the files name in your public folder. if you want change folder stored files, go to app/config/packages/ferampe/elfindercontrol/config.php and change name folder.
+
+```
+php artisan config:publish ferampe/elfindercontrol
+```
+
+##Use
+
 According to your needs, you can add the routes that call elfindercontrol the elfinderConnector path must always exist.
 
 ```
@@ -40,16 +50,6 @@ Route::get('elFinderCkeditor4', array('as' => 'elFinderCkeditor4', 'uses' => 'Fe
 Route::any('elfinderConnector', array('as' => 'elfinderConnector', 'uses' => 'Ferampe\Elfindercontrol\ElfindercontrolController@showConnector'));
 
 ```
-
-##Configuration
-
-We have to set the folder where the images will be stored, create a folder with the files name in your public folder. if you want change folder stored files, go to app/config/packages/ferampe/elfindercontrol/config.php and change name folder.
-
-```
-php artisan config:publish ferampe/elfindercontrol
-```
-
-##Use
 
 For Single Element.
 
