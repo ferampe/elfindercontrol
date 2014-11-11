@@ -1,10 +1,13 @@
-<input type="button" value="Finde Image" onclick='window.open("{{ route("elFinderSingle", "image") }}", "", "height=500,width=950")'>
+<input type="button" value="Finde Image" onclick='window.open("{{ route("elFinderSingle", $input_name) }}", "", "location=0,height=500,width=950").focus()'>
+<input type='text' id='{{ $input_name }}' name='{{ $input_name }}' value=''>
 
-<input type='text' id='image' name='image' value=''>
 
 <script>
+
 	function singleFile(file, obj)
 	{		
 	    document.getElementById(obj).value = file.path;	    
 	}
 </script>
+
+

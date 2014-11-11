@@ -44,7 +44,8 @@
 	                        
 	                    }else{               
 	                        window.opener.singleFile(file, '<?=$input_id?>');
-	                        window.close();	                        
+	                        window.close();
+	                       
 	                    }
 	                    
 
