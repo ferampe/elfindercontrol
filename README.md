@@ -60,7 +60,7 @@ Route::get('/myControl', function()
 });
 ```
 
-For Multiple Elements
+For Multiple Elements, inside control elFinder select multiple elements and right click "select files".
 
 ```
 Route::get('/myControl', function() 
