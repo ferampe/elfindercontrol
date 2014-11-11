@@ -2,6 +2,8 @@
 
 use View;
 use Config;
+use Log;
+use Response;
 
 
 class ElfindercontrolController extends \BaseController {
@@ -13,27 +15,27 @@ class ElfindercontrolController extends \BaseController {
 	public function showConnector()
     {        
     	$folder_path = Config::get($this->package.'::folder_path');
+    	$roots = Config::get($this->package.'::roots');
 
-    	$access = function ($attr, $path, $data, $volume) 
+    	Log::info('Mi info -- '.serialize($folder_path));
+
+    	/*$access = function ($attr, $path, $data, $volume) 
     		{
 				return strpos(basename($path), '.') === 0       // if file/folder begins with '.' (dot)
 					? !($attr == 'read' || $attr == 'write')    // set read+write to false, other (locked+hidden) set to true
 					:  null;                                    // else elFinder decide it itself
-			};
-
+			};*/
 
         $opts = array(			
 			'roots' => array(
 				array(
-					'driver'        => 'LocalFileSystem',   // driver for accessing file system (REQUIRED)
-					'path'          => public_path() . DIRECTORY_SEPARATOR .$folder_path,         // path to files (REQUIRED)
-					'URL'           => asset($folder_path), // URL to files (REQUIRED)
-					'accessControl' => $access// disable and hide dot starting files (OPTIONAL)
+					'driver'        => 'LocalFileSystem',
+					'path'          => public_path() . DIRECTORY_SEPARATOR .$folder_path,
+					'URL'           => asset($folder_path)
 				)
 			)
 		);
 
-		//$opts = Config::get($this->package.'::opts');
 
         $connector = new \elFinderConnector(new \elFinder($opts));
         $connector->run();
