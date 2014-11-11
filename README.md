@@ -40,7 +40,7 @@ php artisan config:publish ferampe/elfindercontrol
 
 ##Use
 
-According to your needs, you can add the routes that call elfindercontrol the elfinderConnector path must always exist.
+According to your needs, you can add the routes that call elfindercontrol, the elfinderConnector path must always exist.
 
 ```
 Route::get('elFinderSingle/{input_id}', array('as' => 'elFinderSingle', 'uses' => 'Ferampe\Elfindercontrol\ElfindercontrolController@elFinderSingle'));
