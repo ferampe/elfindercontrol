@@ -32,7 +32,7 @@ php artisan asset:publish ferampe/elfindercontrol
 
 ##Configuration
 
-We have to set the folder where the images will be stored, create a folder with the files name in your public folder. if you want change folder stored files, go to app/config/packages/ferampe/elfindercontrol/config.php and change name folder.
+We have to set the folder where the images will be stored, **create a folder with the files name in your public folder**, if you want change folder stored files, go to app/config/packages/ferampe/elfindercontrol/config.php and change name folder.
 
 ```
 php artisan config:publish ferampe/elfindercontrol
