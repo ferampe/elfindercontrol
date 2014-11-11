@@ -18,8 +18,7 @@ class ElfindercontrolServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('ferampe/elfindercontrol');
-		include __DIR__.'/../../routes.php';
+		$this->package('ferampe/elfindercontrol');		
 	}
 
 	/**
