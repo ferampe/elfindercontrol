@@ -3,8 +3,6 @@
 use View;
 use Config;
 use Log;
-use Response;
-
 
 class ElfindercontrolController extends \BaseController {
 
@@ -12,31 +10,25 @@ class ElfindercontrolController extends \BaseController {
 	protected $asset_path = 'packages/ferampe/elfindercontrol';
 
 
-	public function showConnector()
+	public function connector()
     {        
     	$folder_path = Config::get($this->package.'::folder_path');
     	$roots = Config::get($this->package.'::roots');
 
-    	Log::info('Mi info -- '.serialize($folder_path));
+    	if(!$roots)
+    	{
+			$roots = array(
+					array(
+						'driver'        => 'LocalFileSystem',
+						'path'          => public_path() . DIRECTORY_SEPARATOR .$folder_path,
+						'URL'           => asset($folder_path),
+						'accessControl' => Config::get($this->package . '::access')
+					)
+				);
+    	}
 
-    	/*$access = function ($attr, $path, $data, $volume) 
-    		{
-				return strpos(basename($path), '.') === 0       // if file/folder begins with '.' (dot)
-					? !($attr == 'read' || $attr == 'write')    // set read+write to false, other (locked+hidden) set to true
-					:  null;                                    // else elFinder decide it itself
-			};*/
-
-        $opts = array(			
-			'roots' => array(
-				array(
-					'driver'        => 'LocalFileSystem',
-					'path'          => public_path() . DIRECTORY_SEPARATOR .$folder_path,
-					'URL'           => asset($folder_path)
-				)
-			)
-		);
-
-
+        $opts = array('roots' => $roots);
+		
         $connector = new \elFinderConnector(new \elFinder($opts));
         $connector->run();
     }
@@ -56,6 +48,8 @@ class ElfindercontrolController extends \BaseController {
 		$multiple = 'true';	
 		return \View::make($this->package.'::elfinder')->with(compact('asset_path', 'lang', 'multiple', 'input_id'));		
 	}
+
+
 
 	public function elFinderCkeditor4()
 	{
