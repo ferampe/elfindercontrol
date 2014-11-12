@@ -14,5 +14,11 @@ return array(
     /*
     Especific more Opts to elfinder
      */
-    'roots' => ''
+    'roots' => array(
+                array(
+                    'driver'        => 'LocalFileSystem',
+                    'path'          => public_path() . DIRECTORY_SEPARATOR .'files',
+                    'URL'           => asset('files')
+                )
+            )
 );

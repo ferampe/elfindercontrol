@@ -2,7 +2,7 @@
 
 use View;
 use Config;
-
+use Log;
 
 class ElfindercontrolController extends \BaseController {
 
@@ -13,16 +13,18 @@ class ElfindercontrolController extends \BaseController {
 	public function showConnector()
     {        
     	$folder_path = Config::get($this->package.'::folder_path');
+    	$roots = Config::get($this->package.'::roots');
 
-    	$access = function ($attr, $path, $data, $volume) 
+    	//Log::info('mi Log jejej:'.var_dump($roots));
+    	/*$access = function ($attr, $path, $data, $volume) 
     		{
 				return strpos(basename($path), '.') === 0       // if file/folder begins with '.' (dot)
 					? !($attr == 'read' || $attr == 'write')    // set read+write to false, other (locked+hidden) set to true
 					:  null;                                    // else elFinder decide it itself
-			};
+			};*/
 
 
-        $opts = array(			
+        /*$opts = array(			
 			'roots' => array(
 				array(
 					'driver'        => 'LocalFileSystem',   // driver for accessing file system (REQUIRED)
@@ -31,7 +33,11 @@ class ElfindercontrolController extends \BaseController {
 					'accessControl' => $access// disable and hide dot starting files (OPTIONAL)
 				)
 			)
-		);
+		);*/
+
+		$opts = array(
+			'roots' => $roots
+			);
 
 		//$opts = Config::get($this->package.'::opts');
 
