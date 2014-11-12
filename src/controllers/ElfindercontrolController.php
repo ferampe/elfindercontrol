@@ -10,37 +10,25 @@ class ElfindercontrolController extends \BaseController {
 	protected $asset_path = 'packages/ferampe/elfindercontrol';
 
 
-	public function showConnector()
+	public function connector()
     {        
     	$folder_path = Config::get($this->package.'::folder_path');
     	$roots = Config::get($this->package.'::roots');
 
-    	//Log::info('mi Log jejej:'.var_dump($roots));
-    	/*$access = function ($attr, $path, $data, $volume) 
-    		{
-				return strpos(basename($path), '.') === 0       // if file/folder begins with '.' (dot)
-					? !($attr == 'read' || $attr == 'write')    // set read+write to false, other (locked+hidden) set to true
-					:  null;                                    // else elFinder decide it itself
-			};*/
+    	if(!$roots)
+    	{
+			$roots = array(
+					array(
+						'driver'        => 'LocalFileSystem',
+						'path'          => public_path() . DIRECTORY_SEPARATOR .$folder_path,
+						'URL'           => asset($folder_path),
+						'accessControl' => Config::get($this->package . '::access')
+					)
+				);
+    	}
 
-
-        /*$opts = array(			
-			'roots' => array(
-				array(
-					'driver'        => 'LocalFileSystem',   // driver for accessing file system (REQUIRED)
-					'path'          => public_path() . DIRECTORY_SEPARATOR .$folder_path,         // path to files (REQUIRED)
-					'URL'           => asset($folder_path), // URL to files (REQUIRED)
-					'accessControl' => $access// disable and hide dot starting files (OPTIONAL)
-				)
-			)
-		);*/
-
-		$opts = array(
-			'roots' => $roots
-			);
-
-		//$opts = Config::get($this->package.'::opts');
-
+        $opts = array('roots' => $roots);
+		
         $connector = new \elFinderConnector(new \elFinder($opts));
         $connector->run();
     }
@@ -60,6 +48,8 @@ class ElfindercontrolController extends \BaseController {
 		$multiple = 'true';	
 		return \View::make($this->package.'::elfinder')->with(compact('asset_path', 'lang', 'multiple', 'input_id'));		
 	}
+
+
 
 	public function elFinderCkeditor4()
 	{
