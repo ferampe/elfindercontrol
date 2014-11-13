@@ -75,3 +75,8 @@ For CkEditor 4, in your config.js
 config.filebrowserBrowseUrl = '{{{ url("elFinderCkeditor4") }}}';
 ```
 
+For more flexibility, you can publish view and add more elements, parameters for your custom view.
+
+```
+php artisan view:publish ferampe/elfindercontrol
+```
