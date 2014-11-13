@@ -80,3 +80,4 @@ config.filebrowserBrowseUrl = '{{{ url("elFinderCkeditor4") }}}';
 ```
 php artisan view:publish ferampe/elfindercontrol
 ```
+Go to views/packages/ferampe/elfindercontrol and change templates.
