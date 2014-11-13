@@ -2,19 +2,16 @@
 
 class Elfindercontrol {
 
-	protected $package = 'elfindercontrol';
-	protected $asset_path = 'packages/ferampe/elfindercontrol';
+	protected $package = 'elfindercontrol';	
 
-	public function getSingleElement($input_name = 'image')
+	public function getSingleElement($parameter = array())
 	{
-		$asset_path = $this->asset_path;
-		return \View::make($this->package.'::singleelement')->with(compact('input_name', 'asset_path'));
+		return \View::make($this->package.'::singleelement')->with(compact('parameter'));
 	}
 
-	public function getMultipleElements($input_name = 'images')
+	public function getMultipleElements($parameter = array())
 	{
-		$asset_path = $this->asset_path;
-		return \View::make($this->package.'::multipleelements')->with(compact('input_name', 'asset_path'));
+		return \View::make($this->package.'::multipleelements')->with(compact('parameter'));
 	}
 
 	public static function access($attr, $path, $data, $volume) 

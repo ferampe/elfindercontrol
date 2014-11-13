@@ -1,8 +1,6 @@
-<input type="button" value="Finde Images" onclick='window.open("{{ route("elFinderMultiple", $input_name) }}", "", "height=500,width=950")'>
+<input type="button" value="{{ $parameter['button_text'] }}" onclick="window.open('{{ route('elFinderMultiple', $parameter['input_name']) }}', '', 'height=500,width=950')">
 <br />
-<textarea id='{{ $input_name }}' name='{{ $input_name }}' rows="9" cols="50"></textarea>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<textarea id='{{ $parameter["input_name"] }}' name='{{ $parameter["input_name"] }}' rows="9" cols="50"></textarea>
 
 <script>
 	function multipleFiles(files, obj)
