@@ -56,7 +56,7 @@ For Single Element.
 ```
 Route::get('/myControl', function() 
 {
-    return ElFinderControl::getSingleElement();
+    return ElFinderControl::getSingleElement(array('input_name' => 'icon', 'button_text' => 'search'));
 });
 ```
 
@@ -65,7 +65,7 @@ For Multiple Elements, inside control elFinder select multiple elements and righ
 ```
 Route::get('/myControl', function() 
 {
-    return ElFinderControl::getMultipleElements();
+    return ElFinderControl::getMultipleElements(array('input_name' => 'icon', 'button_text' => 'search'));
 });
 ```
 
